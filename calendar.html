@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendar - PAS Global Connect</title>
+    <link rel="icon" type="image/png" href="public/img/logo-favicon-32.png">
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-logo-horizontal"><img src="public/img/logo-45.png" alt="PAS Global Connect Logo"><span class="sidebar-title">PAS Global<br>Connect</span></div></div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>Beranda</span></a>
+                <a href="chat.html" class="nav-item"><i class="fas fa-comments"></i><span>Mesej</span></a>
+                <a href="forum.html" class="nav-item"><i class="fas fa-users"></i><span>Forum</span></a>
+                <a href="videos.html" class="nav-item"><i class="fas fa-play-circle"></i><span>Video Ceramah</span></a>
+                <a href="community.html" class="nav-item"><i class="fas fa-user-friends"></i><span>Komuniti</span></a>
+                <a href="calendar.html" class="nav-item active"><i class="fas fa-calendar-alt"></i><span>Kalendar</span></a>
+                <a href="profile.html" class="nav-item"><i class="fas fa-user-circle"></i><span>Profil</span></a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Rasmi PAS</div>
+                
+                <a href="https://harakahdaily.net/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Harakah Daily</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-globe"></i>
+                    <span>Portal Rasmi PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://skimpas.com/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>SKIM PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://infaqpay.my/go/pas" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-donate"></i>
+                    <span>Infaq & Derma PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://keahlian.pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Keahlian PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Lain-lain</div>
+                
+                <a href="https://spr.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-vote-yea"></i>
+                    <span>SPR Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpn.gov.my/my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-id-card"></i>
+                    <span>JPN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.kln.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-flag"></i>
+                    <span>KLN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpa.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-briefcase"></i>
+                    <span>JPA Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.mara.gov.my/en/index/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>MARA</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile"><div class="user-avatar">A</div><div class="user-info"><div class="user-name">Loading...</div><div class="user-role">Ahli</div></div></div>
+                <button onclick="logout()" class="btn btn-secondary btn-block" style="margin-top: 15px;"><i class="fas fa-sign-out-alt"></i>Log Keluar</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="page-header"><div><h1 class="page-title">Kalendar Aktiviti</h1><p class="page-subtitle">Program dan acara mendatang</p></div><button class="btn btn-primary" onclick="showNewEventModal()"><i class="fas fa-plus"></i>Acara Baru</button></div>
+            <div class="card">
+                <div class="calendar-header">
+                    <button class="btn btn-secondary" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <h2 id="currentMonth"></h2>
+                    <button class="btn btn-secondary" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </div>
+            <div class="card"><h3 style="margin-bottom: 20px;">Acara Akan Datang</h3><div id="eventsList"></div></div>
+        </main>
+    </div>
+    <div id="newEventModal" class="modal"><div class="modal-content" style="max-width: 600px;"><div class="modal-header"><h3>Acara Baru</h3><button class="close-modal" onclick="closeNewEventModal()"><i class="fas fa-times"></i></button></div><div class="modal-body"><form id="newEventForm" onsubmit="createEvent(event)"><div class="form-group"><label>Tajuk</label><input type="text" id="eventTitle" required></div><div class="form-row"><div class="form-group"><label>Kategori</label><select id="eventCategory" required><option value="">Pilih</option><option value="Ceramah">Ceramah</option><option value="Mesyuarat">Mesyuarat</option><option value="Program">Program</option><option value="Kursus">Kursus</option><option value="Majlis">Majlis</option></select></div><div class="form-group"><label>Tarikh</label><input type="date" id="eventDate" required></div></div><div class="form-row"><div class="form-group"><label>Masa</label><input type="text" id="eventTime" placeholder="20:00 - 22:00" required></div><div class="form-group"><label>Negara</label><input type="text" id="eventCountry" required></div></div><div class="form-group"><label>Lokasi</label><input type="text" id="eventLocation" required></div><div class="form-group"><label>Penerangan</label><textarea id="eventDescription" rows="4"></textarea></div><button type="submit" class="btn btn-primary btn-block"><i class="fas fa-calendar-plus"></i>Tambah Acara</button></form></div></div></div>
+    <script src="js/utils.js"></script>
+    <script src="js/calendar.js"></script>
+</body>
+</html>

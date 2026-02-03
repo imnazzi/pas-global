@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAS Global Connect - Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1f1a 0%, #051510 100%);
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 60px 80px;
+            color: white;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Slide Layouts */
+        .slide-title {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #004d28 0%, #006838 100%);
+        }
+
+        .slide-content {
+            justify-content: flex-start;
+        }
+
+        .slide-two-column {
+            display: flex;
+            flex-direction: row !important;
+            gap: 40px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #FFD700;
+        }
+
+        h3 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00C853;
+        }
+
+        .tagline {
+            font-size: 32px;
+            font-weight: 300;
+            font-style: italic;
+            color: #FFD700;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #b8c5c1;
+            margin-bottom: 30px;
+        }
+
+        /* Logo */
+        .logo {
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 80px;
+            color: #FFD700;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Content Sections */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 200, 83, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00C853;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            color: #00C853;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .feature-description {
+            font-size: 18px;
+            color: #b8c5c1;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li {
+            font-size: 24px;
+            padding: 15px 0;
+            padding-left: 50px;
+            position: relative;
+            color: #b8c5c1;
+            line-height: 1.5;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00C853;
+            font-weight: 700;
+            font-size: 28px;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            gap: 30px;
+        }
+
+        .stat-box {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            flex: 1;
+            border: 2px solid rgba(0, 200, 83, 0.3);
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 20px;
+            color: #b8c5c1;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(0, 104, 56, 0.8);
+            border: 2px solid #00C853;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #00C853;
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            background: rgba(0, 104, 56, 0.8);
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            border: 2px solid #00C853;
+        }
+
+        /* Two Column Layout */
+        .column {
+            flex: 1;
+        }
+
+        .column h3 {
+            margin-bottom: 25px;
+        }
+
+        /* Screenshot placeholder */
+        .screenshot {
+            width: 100%;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(0, 200, 83, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #7a8b86;
+            margin-top: 20px;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #00C853;
+            border-radius: 10px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            font-size: 18px;
+            color: #b8c5c1;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .highlight-box h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 { font-size: 48px; }
+            h2 { font-size: 36px; }
+            h3 { font-size: 28px; }
+            .tagline { font-size: 24px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .slide { padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide Counter -->
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide slide-title active">
+            <div class="logo">🌍</div>
+            <h1>PAS Global Connect</h1>
+            <p class="tagline">Connecting Hearts, Strengthening Faith Worldwide</p>
+            <p class="subtitle">Platform Komunikasi Ahli PAS Global</p>
+        </div>
+
+        <!-- Slide 2: Masalah -->
+        <div class="slide slide-content">
+            <h2>❗ Cabaran Semasa</h2>
+            <ul>
+                <li>Ahli PAS tersebar di lebih 50 negara di seluruh dunia</li>
+                <li>Sukar untuk berkomunikasi dan berkoordinasi</li>
+                <li>Tiada platform khusus untuk komuniti PAS global</li>
+                <li>Maklumat dan pengumuman sukar sampai ke semua</li>
+                <li>Aktiviti dakwah tidak tersusun dengan baik</li>
+                <li>Silaturahim antara ahli sukar dikekalkan</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Penyelesaian -->
+        <div class="slide slide-content">
+            <h2>💡 Penyelesaian Kami</h2>
+            <p class="subtitle">Platform digital all-in-one untuk ahli PAS di seluruh dunia</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Selamat & Terjamin</div>
+                    <div class="feature-description">Sistem keselamatan berlapis dengan enkripsi SHA-256</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Komunikasi Real-Time</div>
+                    <div class="feature-description">Chat, forum, dan mesej langsung dengan ahli lain</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Komuniti Global</div>
+                    <div class="feature-description">Direktori ahli di lebih 50 negara</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-title">Kalendar Aktiviti</div>
+                    <div class="feature-description">Pantau dan anjur program dengan mudah</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Ciri Utama -->
+        <div class="slide slide-content">
+            <h2>✨ Ciri-Ciri Utama</h2>
+            <ul>
+                <li><strong>Dashboard Interaktif</strong> - Statistik real-time & feed berita</li>
+                <li><strong>Sistem Mesej</strong> - Chat 1-on-1 dengan auto-refresh</li>
+                <li><strong>Forum Diskusi</strong> - 5 kategori: Umum, Dakwah, Pendidikan, Sosial, Teknikal</li>
+                <li><strong>Direktori Ahli</strong> - Cari ahli mengikut negara & profesion</li>
+                <li><strong>Kalendar Acara</strong> - Anjur ceramah, mesyuarat, program</li>
+                <li><strong>Profil Lengkap</strong> - Maklumat keahlian PAS & kepakaran</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Keselamatan -->
+        <div class="slide slide-content">
+            <h2>🔐 Sistem Keselamatan Berlapis</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">Lapisan 1: Pengesahan</div>
+                    <div class="timeline-content">Password hashing SHA-256 • Verifikasi email & telefon • CAPTCHA anti-bot</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Lapisan 2: Authorization</div>
+                    <div class="timeline-content">Role-based access control • Session token • Restricted access</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Lapisan 3: Data Protection</div>
+                    <div class="timeline-content">XSS prevention • Input sanitization • SQL injection protection</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Lapisan 4: Privacy</div>
+                    <div class="timeline-content">User consent • Profile controls • Data retention policy</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Lapisan 5: Monitoring</div>
+                    <div class="timeline-content">Login logging • Activity audit • Auto-lockout</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Dashboard -->
+        <div class="slide slide-two-column">
+            <div class="column">
+                <h2>📊 Dashboard</h2>
+                <h3>Statistik Real-Time</h3>
+                <ul>
+                    <li>Jumlah ahli global</li>
+                    <li>Bilangan negara aktif</li>
+                    <li>Aktiviti bulan ini</li>
+                    <li>Topik diskusi</li>
+                </ul>
+                <h3>Feed Berita</h3>
+                <ul>
+                    <li>Pengumuman penting</li>
+                    <li>Berita komuniti</li>
+                    <li>Aktiviti terkini</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="screenshot">
+                    📊 Dashboard Screenshot
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Komunikasi -->
+        <div class="slide slide-two-column">
+            <div class="column">
+                <div class="screenshot">
+                    💬 Chat Interface
+                </div>
+            </div>
+            <div class="column">
+                <h2>💬 Sistem Mesej</h2>
+                <h3>Chat Real-Time</h3>
+                <ul>
+                    <li>Auto-refresh setiap 3 saat</li>
+                    <li>Status baca/belum baca</li>
+                    <li>History mesej tersimpan</li>
+                    <li>Carian kenalan pantas</li>
+                </ul>
+                <div class="highlight-box">
+                    <h3>🔒 Mesej Selamat</h3>
+                    <p style="font-size: 18px; color: #b8c5c1;">Semua mesej dilindungi dengan sanitization dan content moderation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Forum -->
+        <div class="slide slide-content">
+            <h2>👥 Forum Diskusi</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <div class="feature-title">Umum</div>
+                    <div class="feature-description">Perbincangan umum & info</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📿</div>
+                    <div class="feature-title">Dakwah</div>
+                    <div class="feature-description">Strategi & pengalaman dakwah</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <div class="feature-title">Pendidikan</div>
+                    <div class="feature-description">Pendidikan Islam & anak-anak</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-title">Sosial</div>
+                    <div class="feature-description">Isu sosial & kemasyarakatan</div>
+                </div>
+            </div>
+            <p class="subtitle" style="margin-top: 40px; text-align: center;">
+                ✓ Like/Upvote System • ✓ Nested Replies • ✓ Content Moderation
+            </p>
+        </div>
+
+        <!-- Slide 9: Komuniti -->
+        <div class="slide slide-content">
+            <h2>🌍 Direktori Komuniti Global</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Negara</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Ahli</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Aktiviti/Bulan</div>
+                </div>
+            </div>
+            <ul style="margin-top: 50px;">
+                <li>Cari ahli mengikut negara, profesion, kepakaran</li>
+                <li>Profil lengkap dengan maklumat keahlian PAS</li>
+                <li>Hubungi terus melalui chat atau mesej</li>
+                <li>Lihat aktiviti dan sumbangan ahli</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Roadmap -->
+        <div class="slide slide-content">
+            <h2>🚀 Roadmap Pembangunan</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">✅ Fasa 1 - SIAP (4 bulan)</div>
+                    <div class="timeline-content">Dashboard • Chat • Forum • Komuniti • Kalendar • Keselamatan Berlapis</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">📋 Fasa 2 (2-3 bulan)</div>
+                    <div class="timeline-content">Video/Audio Call • Live Streaming • Perpustakaan Digital • Peta Interaktif • Push Notifications</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">🎯 Fasa 3 (2 bulan)</div>
+                    <div class="timeline-content">AI Moderation • Multi-bahasa • Offline Mode • Mobile Apps • Payment Gateway</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Manfaat -->
+        <div class="slide slide-content">
+            <h2>🎯 Manfaat Platform</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">Untuk Ahli</div>
+                    <div class="feature-description">
+                        • Hubungan global<br>
+                        • Akses kepada ilmu<br>
+                        • Sokongan komuniti<br>
+                        • Sertai aktiviti
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📢</div>
+                    <div class="feature-title">Untuk Penganjur</div>
+                    <div class="feature-description">
+                        • Koordinasi mudah<br>
+                        • Jangkauan luas<br>
+                        • Pengurusan acara<br>
+                        • Track engagement
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <div class="feature-title">Untuk Organisasi</div>
+                    <div class="feature-description">
+                        • Database teratur<br>
+                        • Platform rasmi<br>
+                        • Koordinasi antarabangsa<br>
+                        • Data insights
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕌</div>
+                    <div class="feature-title">Untuk Dakwah</div>
+                    <div class="feature-description">
+                        • Dakwah global<br>
+                        • Kongsi pengalaman<br>
+                        • Strategi bersama<br>
+                        • Sokongan mutual
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Closing -->
+        <div class="slide slide-title">
+            <div class="logo">🌍</div>
+            <h1>PAS Global Connect</h1>
+            <p class="tagline">Connecting Hearts, Strengthening Faith Worldwide</p>
+            <div class="highlight-box" style="max-width: 800px; margin: 40px auto 0;">
+                <h3 style="margin-bottom: 20px;">📞 Hubungi Kami</h3>
+                <p style="font-size: 24px; color: #b8c5c1; line-height: 1.8;">
+                    📧 info@pasconnect.global<br>
+                    🌐 www.pasconnect.global<br>
+                    💬 support@pasconnect.global
+                </p>
+            </div>
+            <p class="subtitle" style="margin-top: 40px; font-style: italic;">
+                "Sesungguhnya orang-orang mukmin adalah bersaudara"<br>
+                <small style="font-size: 20px;">(Al-Hujurat: 10)</small>
+            </p>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="previousSlide()">◀ Sebelum</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Seterusnya ▶</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

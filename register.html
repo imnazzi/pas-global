@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran - PASConnect Global</title>
+    <link rel="icon" type="image/png" href="public/img/logo-favicon-32.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="register-page">
+    <div class="register-container">
+        <div class="register-header">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Log Masuk
+            </a>
+            <div class="logo-small">
+                <img src="public/img/logo-150.png" alt="PAS Global Connect Logo" style="width: 50px; height: 50px; object-fit: contain;">
+                <span style="font-size: 16px; font-weight: 700; color: var(--text-primary);">PAS Global Connect</span>
+            </div>
+        </div>
+        
+        <div class="register-content">
+            <div class="register-intro">
+                <h1>Daftar Akaun Baru</h1>
+                <p>Khusus untuk ahli PAS yang berada di luar negara</p>
+                
+                <div class="registration-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Maklumat Asas</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Keahlian PAS</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Keselamatan</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="registerForm" class="register-form">
+                <!-- Step 1: Maklumat Asas -->
+                <div class="form-step active" id="step1">
+                    <h3>Maklumat Peribadi</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">
+                                <i class="fas fa-user"></i>
+                                Nama Penuh <span class="required">*</span>
+                            </label>
+                            <input type="text" id="fullName" name="fullName" required 
+                                   placeholder="Masukkan nama penuh">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Email <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required 
+                                   placeholder="contoh@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i>
+                                Nombor Telefon <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   placeholder="+60123456789">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country">
+                                <i class="fas fa-flag"></i>
+                                Negara Semasa <span class="required">*</span>
+                            </label>
+                            <select id="country" name="country" required>
+                                <option value="">Pilih negara</option>
+                                <optgroup label="Asia Tenggara">
+                                    <option value="Singapura">Singapura</option>
+                                    <option value="Brunei">Brunei</option>
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="Thailand">Thailand</option>
+                                </optgroup>
+                                <optgroup label="Timur Tengah">
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="UAE">UAE</option>
+                                    <option value="Qatar">Qatar</option>
+                                    <option value="Kuwait">Kuwait</option>
+                                    <option value="Oman">Oman</option>
+                                    <option value="Bahrain">Bahrain</option>
+                                    <option value="Jordan">Jordan</option>
+                                    <option value="Egypt">Mesir</option>
+                                    <option value="Turkey">Turki</option>
+                                </optgroup>
+                                <optgroup label="Eropah">
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Germany">Jerman</option>
+                                    <option value="France">Perancis</option>
+                                    <option value="Netherlands">Belanda</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="Sweden">Sweden</option>
+                                </optgroup>
+                                <optgroup label="Amerika & Oceania">
+                                    <option value="United States">Amerika Syarikat</option>
+                                    <option value="Canada">Kanada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                </optgroup>
+                                <optgroup label="Asia Lain">
+                                    <option value="Japan">Jepun</option>
+                                    <option value="South Korea">Korea Selatan</option>
+                                    <option value="China">China</option>
+                                    <option value="India">India</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                </optgroup>
+                                <option value="Lain-lain">Lain-lain</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profession">
+                                <i class="fas fa-briefcase"></i>
+                                Profesion
+                            </label>
+                            <input type="text" id="profession" name="profession" 
+                                   placeholder="Cth: Doktor, Guru, Peniaga">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                        Seterusnya
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Step 2: Keahlian PAS -->
+                <div class="form-step" id="step2">
+                    <h3>Maklumat Keahlian PAS</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pasMemberId">
+                                <i class="fas fa-id-card"></i>
+                                Nombor Ahli PAS <span class="required">*</span>
+                            </label>
+                            <input type="text" id="pasMemberId" name="pasMemberId" required 
+                                   placeholder="Masukkan nombor keahlian PAS">
+                            <small class="form-hint">Jika belum mempunyai nombor ahli, hubungi cawangan terdekat</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="branch">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Cawangan/DUN Asal <span class="required">*</span>
+                            </label>
+                            <input type="text" id="branch" name="branch" required 
+                                   placeholder="Cth: Kota Bharu, Pasir Mas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expertise">
+                                <i class="fas fa-star"></i>
+                                Bidang Kepakaran
+                            </label>
+                            <input type="text" id="expertise" name="expertise" 
+                                   placeholder="Cth: Dakwah, Pendidikan, IT">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                            Seterusnya
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Keselamatan -->
+                <div class="form-step" id="step3">
+                    <h3>Tetapan Keselamatan</h3>
+                    
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                            Kata Laluan <span class="required">*</span>
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" required 
+                                   placeholder="Masukkan kata laluan"
+                                   onkeyup="checkPasswordStrength(this.value)">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text"></span>
+                        </div>
+                        <small class="form-hint">Minimum 8 aksara, gunakan huruf besar, kecil, nombor dan simbol</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">
+                            <i class="fas fa-lock"></i>
+                            Sahkan Kata Laluan <span class="required">*</span>
+                        </label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required 
+                                   placeholder="Masukkan semula kata laluan">
+                            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <span>Saya bersetuju dengan <a href="#" target="_blank">Terma & Syarat</a> dan 
+                            <a href="#" target="_blank">Dasar Privasi</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeData" name="agreeData" required>
+                            <span>Saya bersetuju maklumat saya dikongsi dengan Jabatan PAS Luar Negara untuk tujuan pengesahan</span>
+                        </label>
+                    </div>
+                    
+                    <div class="security-features">
+                        <h4><i class="fas fa-shield-alt"></i> Keselamatan Akaun Anda</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Enkripsi data dengan SHA-256</li>
+                            <li><i class="fas fa-check"></i> Verifikasi email dan nombor telefon</li>
+                            <li><i class="fas fa-check"></i> Pengesahan 2-langkah (2FA)</li>
+                            <li><i class="fas fa-check"></i> Audit trail untuk semua aktiviti</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

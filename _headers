@@ -1,0 +1,36 @@
+# Cloudflare Pages Headers Configuration
+# PAS Global Connect
+
+# Security headers for all pages
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  
+# Cache control for CSS files (1 year)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Cache control for JavaScript files (1 year)
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Cache control for HTML files (no cache)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  
+# Cache control for images (if any)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+# Security headers for admin pages
+/test-system.html
+  X-Robots-Tag: noindex, nofollow
+  
+# CORS headers (if needed for API calls)
+/api/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization

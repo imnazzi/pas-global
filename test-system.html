@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test & Initialize - PAS Global Connect</title>
+    <link rel="icon" type="image/png" href="/pas-connect/public/img/logo-favicon-32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #006838 0%, #00854d 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #006838;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: #f9f9f9;
+        }
+
+        .section h2 {
+            color: #006838;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #006838;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #00854d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 104, 56, 0.3);
+        }
+
+        .btn-secondary {
+            background: #4A90E2;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #357ABD;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .status.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .credentials {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #006838;
+            margin: 10px 0;
+        }
+
+        .credentials h3 {
+            color: #006838;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .credentials p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .credentials code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .test-results {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .test-item {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-item.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .test-item.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 12px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <i class="fas fa-cog"></i>
+            Test & Initialize System
+        </h1>
+        <p class="subtitle">PAS Global Connect - System Testing & Initialization Panel</p>
+
+        <!-- Important Warning -->
+        <div class="section" style="background: #fff3cd; border-color: #ffc107;">
+            <h2 style="color: #856404;"><i class="fas fa-exclamation-triangle"></i> IMPORTANT: API Limitation</h2>
+            <div style="color: #856404;">
+                <p><strong>⚠️ The RESTful Table API only works in the DEVELOPMENT environment.</strong></p>
+                <p style="margin-top: 10px;">After deploying to <strong>Netlify</strong> or <strong>Cloudflare Pages</strong>:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✅ All HTML pages will work</li>
+                    <li>✅ CSS styling will work</li>
+                    <li>✅ JavaScript functionality will work</li>
+                    <li>❌ Database operations (login/register) will NOT work</li>
+                    <li>❌ Admin initialization will NOT work</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>For production deployment, you need:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>🔧 Backend API (Node.js, PHP, Python, etc.)</li>
+                    <li>🗄️ Database (Firebase, Supabase, MongoDB, PostgreSQL)</li>
+                    <li>🔐 Authentication service (Firebase Auth, Auth0, custom)</li>
+                </ul>
+                <p style="margin-top: 15px; padding: 10px; background: #f8d7da; border-left: 4px solid #dc3545; color: #721c24;">
+                    <strong>Testing/Demo Only:</strong> This test-system.html is for development testing only. 
+                    It will not function after deployment to static hosting platforms.
+                </p>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="section">
+            <h2><i class="fas fa-heartbeat"></i> Status Sistem</h2>
+            <button class="btn btn-primary" onclick="checkSystemStatus()">
+                <i class="fas fa-check-circle"></i>
+                Semak Status Sistem
+            </button>
+            <div id="systemStatus"></div>
+        </div>
+
+        <!-- Initialize Admin Accounts -->
+        <div class="section">
+            <h2><i class="fas fa-user-shield"></i> Initialize Admin Accounts</h2>
+            <p style="margin-bottom: 15px; color: #666;">Klik butang di bawah untuk create 4 admin accounts (1 Master Admin + 3 Regional Admins)</p>
+            <button class="btn btn-secondary" onclick="initializeAdmins()">
+                <i class="fas fa-users-cog"></i>
+                Initialize Admin Accounts
+            </button>
+            <div id="initStatus"></div>
+        </div>
+
+        <!-- Admin Credentials -->
+        <div class="section">
+            <h2><i class="fas fa-key"></i> Admin Credentials</h2>
+            
+            <div class="credentials">
+                <h3>🏆 Master Admin</h3>
+                <p><strong>Email:</strong> <code>master@pasglobalconnect.com</code></p>
+                <p><strong>Password:</strong> <code>MasterAdmin@2026</code></p>
+            </div>
+
+            <div class="credentials">
+                <h3>👔 Admin 1 (Utara)</h3>
+                <p><strong>Email:</strong> <code>admin1@pasglobalconnect.com</code></p>
+                <p><strong>Password:</strong> <code>Admin1@2026</code></p>
+            </div>
+
+            <div class="credentials">
+                <h3>👔 Admin 2 (Tengah)</h3>
+                <p><strong>Email:</strong> <code>admin2@pasglobalconnect.com</code></p>
+                <p><strong>Password:</strong> <code>Admin2@2026</code></p>
+            </div>
+
+            <div class="credentials">
+                <h3>👔 Admin 3 (Selatan)</h3>
+                <p><strong>Email:</strong> <code>admin3@pasglobalconnect.com</code></p>
+                <p><strong>Password:</strong> <code>Admin3@2026</code></p>
+            </div>
+        </div>
+
+        <!-- Test Login -->
+        <div class="section">
+            <h2><i class="fas fa-sign-in-alt"></i> Test Login</h2>
+            <button class="btn btn-primary" onclick="testLogin()">
+                <i class="fas fa-vial"></i>
+                Test Master Admin Login
+            </button>
+            <div id="testStatus"></div>
+        </div>
+
+        <!-- Database Clear -->
+        <div class="section">
+            <h2><i class="fas fa-trash-alt"></i> Clear Database (Danger Zone)</h2>
+            <p style="margin-bottom: 15px; color: #dc3545; font-weight: 600;">
+                <i class="fas fa-exclamation-triangle"></i> 
+                Warning: This will delete ALL user data!
+            </p>
+            <button class="btn btn-danger" onclick="clearDatabase()">
+                <i class="fas fa-trash"></i>
+                Clear All Users
+            </button>
+            <div id="clearStatus"></div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="section">
+            <h2><i class="fas fa-link"></i> Quick Links</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Login Page
+                </a>
+                <a href="register-full.html" class="btn btn-secondary">
+                    <i class="fas fa-user-plus"></i> Register Page
+                </a>
+                <a href="dashboard.html" class="btn btn-primary">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 PAS Global Connect - System Testing Panel</p>
+            <p>For development and testing purposes only</p>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script>
+        // Check system status
+        async function checkSystemStatus() {
+            const statusDiv = document.getElementById('systemStatus');
+            statusDiv.innerHTML = '<div class="status info"><i class="fas fa-spinner fa-spin"></i> Checking system status...</div>';
+
+            try {
+                const tests = [];
+
+                // Test 1: Check API connection
+                try {
+                    const response = await fetch('tables/users?limit=1');
+                    tests.push({
+                        name: 'API Connection',
+                        pass: response.ok,
+                        message: response.ok ? 'Connected successfully' : 'Connection failed'
+                    });
+                } catch (error) {
+                    tests.push({
+                        name: 'API Connection',
+                        pass: false,
+                        message: 'Error: ' + error.message
+                    });
+                }
+
+                // Test 2: Check user count
+                try {
+                    const response = await fetch('tables/users?limit=1000');
+                    const data = await response.json();
+                    tests.push({
+                        name: 'User Database',
+                        pass: true,
+                        message: `${data.data.length} users found`
+                    });
+                } catch (error) {
+                    tests.push({
+                        name: 'User Database',
+                        pass: false,
+                        message: 'Error: ' + error.message
+                    });
+                }
+
+                // Test 3: Check if utils.js loaded
+                tests.push({
+                    name: 'Utils Library',
+                    pass: typeof hashPassword === 'function',
+                    message: typeof hashPassword === 'function' ? 'Loaded' : 'Not loaded'
+                });
+
+                // Display results
+                let html = '<div class="test-results"><h3>Test Results:</h3>';
+                tests.forEach(test => {
+                    html += `<div class="test-item ${test.pass ? 'pass' : 'fail'}">
+                        <i class="fas fa-${test.pass ? 'check-circle' : 'times-circle'}"></i>
+                        <strong>${test.name}:</strong> ${test.message}
+                    </div>`;
+                });
+                html += '</div>';
+                statusDiv.innerHTML = html;
+
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="status error"><i class="fas fa-times-circle"></i> Error: ${error.message}</div>`;
+            }
+        }
+
+        // Initialize admin accounts
+        async function initializeAdmins() {
+            const statusDiv = document.getElementById('initStatus');
+            statusDiv.innerHTML = '<div class="status info"><i class="fas fa-spinner fa-spin"></i> Initializing admin accounts...</div>';
+
+            try {
+                // Hash passwords
+                const masterAdminPassword = await hashPassword('MasterAdmin@2026');
+                const admin1Password = await hashPassword('Admin1@2026');
+                const admin2Password = await hashPassword('Admin2@2026');
+                const admin3Password = await hashPassword('Admin3@2026');
+
+                const admins = [
+                    {
+                        id: generateUUID(),
+                        full_name: 'Tuan Haji Abdul Rahman bin Ibrahim',
+                        email: 'master@pasglobalconnect.com',
+                        phone: '+60123456789',
+                        password_hash: masterAdminPassword,
+                        pas_member_id: 'PGCMASTER001',
+                        branch: 'Pusat',
+                        country: 'Malaysia',
+                        profession: 'Master Administrator',
+                        expertise: 'System Management, Security, Full Access',
+                        role: 'master_admin',
+                        verified: true,
+                        last_login: new Date().toISOString(),
+                        avatar_url: '',
+                        bio: 'Master Administrator - Full System Access'
+                    },
+                    {
+                        id: generateUUID(),
+                        full_name: 'Tuan Haji Mohd Aziz bin Hassan',
+                        email: 'admin1@pasglobalconnect.com',
+                        phone: '+60123456790',
+                        password_hash: admin1Password,
+                        pas_member_id: 'PGCADM001',
+                        branch: 'Wilayah Utara',
+                        country: 'Malaysia',
+                        profession: 'Administrator',
+                        expertise: 'User Management, Content Moderation',
+                        role: 'admin',
+                        verified: true,
+                        last_login: new Date().toISOString(),
+                        avatar_url: '',
+                        bio: 'Administrator - Wilayah Utara'
+                    },
+                    {
+                        id: generateUUID(),
+                        full_name: 'Tuan Haji Ahmad Syukri bin Abdullah',
+                        email: 'admin2@pasglobalconnect.com',
+                        phone: '+60123456791',
+                        password_hash: admin2Password,
+                        pas_member_id: 'PGCADM002',
+                        branch: 'Wilayah Tengah',
+                        country: 'Malaysia',
+                        profession: 'Administrator',
+                        expertise: 'Forum Management, Event Coordination',
+                        role: 'admin',
+                        verified: true,
+                        last_login: new Date().toISOString(),
+                        avatar_url: '',
+                        bio: 'Administrator - Wilayah Tengah'
+                    },
+                    {
+                        id: generateUUID(),
+                        full_name: 'Tuan Haji Ismail bin Yusof',
+                        email: 'admin3@pasglobalconnect.com',
+                        phone: '+60123456792',
+                        password_hash: admin3Password,
+                        pas_member_id: 'PGCADM003',
+                        branch: 'Wilayah Selatan',
+                        country: 'Malaysia',
+                        profession: 'Administrator',
+                        expertise: 'Video Content, Community Engagement',
+                        role: 'admin',
+                        verified: true,
+                        last_login: new Date().toISOString(),
+                        avatar_url: '',
+                        bio: 'Administrator - Wilayah Selatan'
+                    }
+                ];
+
+                // Create each admin
+                const results = [];
+                for (const admin of admins) {
+                    try {
+                        console.log('Creating admin:', admin.email);
+                        
+                        const response = await fetch('tables/users', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(admin)
+                        });
+                        
+                        console.log('Response status:', response.status, response.statusText);
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            console.log('Admin created successfully:', data);
+                            results.push({ email: admin.email, success: true });
+                        } else {
+                            let errorDetail = '';
+                            try {
+                                const errorData = await response.json();
+                                errorDetail = errorData.message || errorData.error || JSON.stringify(errorData);
+                            } catch (e) {
+                                errorDetail = await response.text();
+                            }
+                            console.error('Failed to create admin:', admin.email, errorDetail);
+                            results.push({ 
+                                email: admin.email, 
+                                success: false, 
+                                error: `HTTP ${response.status}: ${errorDetail || response.statusText}` 
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Exception creating admin:', admin.email, error);
+                        results.push({ 
+                            email: admin.email, 
+                            success: false, 
+                            error: error.message || 'Network error - check console for details' 
+                        });
+                    }
+                }
+
+                // Display results
+                let html = '<div class="status success"><i class="fas fa-check-circle"></i> Admin initialization completed!</div>';
+                html += '<div class="test-results">';
+                results.forEach(result => {
+                    html += `<div class="test-item ${result.success ? 'pass' : 'fail'}">
+                        <i class="fas fa-${result.success ? 'check-circle' : 'times-circle'}"></i>
+                        ${result.email}: ${result.success ? 'Created' : 'Failed - ' + (result.error || 'Unknown error')}
+                    </div>`;
+                });
+                html += '</div>';
+                statusDiv.innerHTML = html;
+
+            } catch (error) {
+                console.error('Initialize admins error:', error);
+                statusDiv.innerHTML = `
+                    <div class="status error">
+                        <i class="fas fa-times-circle"></i> 
+                        <strong>Error:</strong> ${error.message}
+                        <br><br>
+                        <small>Check browser console (F12) for detailed error information.</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Test login
+        async function testLogin() {
+            const statusDiv = document.getElementById('testStatus');
+            statusDiv.innerHTML = '<div class="status info"><i class="fas fa-spinner fa-spin"></i> Testing login...</div>';
+
+            try {
+                const password = 'MasterAdmin@2026';
+                const passwordHash = await hashPassword(password);
+
+                const response = await fetch('tables/users?limit=1000');
+                const data = await response.json();
+
+                const user = data.data.find(u => 
+                    u.email === 'master@pasglobalconnect.com' && 
+                    u.password_hash === passwordHash
+                );
+
+                if (user) {
+                    statusDiv.innerHTML = `
+                        <div class="status success">
+                            <i class="fas fa-check-circle"></i> 
+                            Login test successful! User found: ${user.full_name}
+                        </div>
+                        <pre>${JSON.stringify(user, null, 2)}</pre>
+                    `;
+                } else {
+                    statusDiv.innerHTML = `
+                        <div class="status error">
+                            <i class="fas fa-times-circle"></i> 
+                            Login test failed! User not found or password incorrect.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="status error"><i class="fas fa-times-circle"></i> Error: ${error.message}</div>`;
+            }
+        }
+
+        // Clear database
+        async function clearDatabase() {
+            if (!confirm('WARNING: This will delete ALL users from the database! Are you sure?')) {
+                return;
+            }
+
+            const statusDiv = document.getElementById('clearStatus');
+            statusDiv.innerHTML = '<div class="status info"><i class="fas fa-spinner fa-spin"></i> Clearing database...</div>';
+
+            try {
+                const response = await fetch('tables/users?limit=1000');
+                const data = await response.json();
+
+                let deleted = 0;
+                for (const user of data.data) {
+                    try {
+                        await fetch(`tables/users/${user.id}`, { method: 'DELETE' });
+                        deleted++;
+                    } catch (error) {
+                        console.error('Error deleting user:', user.id, error);
+                    }
+                }
+
+                statusDiv.innerHTML = `<div class="status success"><i class="fas fa-check-circle"></i> Database cleared! ${deleted} users deleted.</div>`;
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="status error"><i class="fas fa-times-circle"></i> Error: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

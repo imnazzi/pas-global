@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Ceramah - PAS Global Connect</title>
+    <link rel="icon" type="image/png" href="/pas-connect/public/img/logo-favicon-32.png">
+    <link rel="shortcut icon" href="/pas-connect/public/img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/videos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-horizontal">
+                    <img src="/pas-connect/public/img/logo-45.png" alt="PAS Global Connect Logo">
+                    <span class="sidebar-title">PAS Global<br>Connect</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="chat.html" class="nav-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Mesej</span>
+                </a>
+                <a href="forum.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Forum</span>
+                </a>
+                <a href="videos.html" class="nav-item active">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Video Ceramah</span>
+                </a>
+                <a href="community.html" class="nav-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Komuniti</span>
+                </a>
+                <a href="calendar.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Kalendar</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profil</span>
+                </a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Rasmi PAS</div>
+                
+                <a href="https://harakahdaily.net/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Harakah Daily</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-globe"></i>
+                    <span>Portal Rasmi PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://skimpas.com/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>SKIM PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://infaqpay.my/go/pas" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-donate"></i>
+                    <span>Infaq & Derma PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://keahlian.pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Keahlian PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Lain-lain</div>
+                
+                <a href="https://spr.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-vote-yea"></i>
+                    <span>SPR Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpn.gov.my/my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-id-card"></i>
+                    <span>JPN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.kln.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-flag"></i>
+                    <span>KLN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpa.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-briefcase"></i>
+                    <span>JPA Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.mara.gov.my/en/index/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>MARA</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">A</div>
+                    <div class="user-info">
+                        <div class="user-name">Loading...</div>
+                        <div class="user-role">Ahli</div>
+                    </div>
+                </div>
+                <button onclick="logout()" class="btn btn-secondary btn-block" style="margin-top: 15px;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Log Keluar
+                </button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">📹 Video Ceramah & Kuliah</h1>
+                    <p class="page-subtitle">Koleksi ceramah dan kuliah untuk ahli PAS Luar Negara</p>
+                </div>
+                <button class="btn btn-primary" onclick="showUploadModal()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    Muat Naik Video
+                </button>
+            </div>
+            
+            <!-- Filters -->
+            <div class="card">
+                <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                    <select id="categoryFilter" onchange="filterVideos()" style="flex: 1; padding: 10px; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                        <option value="">Semua Kategori</option>
+                        <option value="Ceramah Agama">Ceramah Agama</option>
+                        <option value="Tazkirah">Tazkirah</option>
+                        <option value="Kuliah">Kuliah</option>
+                        <option value="Motivasi">Motivasi</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                        <option value="Lain-lain">Lain-lain</option>
+                    </select>
+                    <select id="countryFilter" onchange="filterVideos()" style="flex: 1; padding: 10px; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                        <option value="">Semua Negara</option>
+                    </select>
+                    <div class="search-box" style="flex: 2; margin: 0;">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchVideos" placeholder="Cari video..." onkeyup="searchVideos()">
+                    </div>
+                </div>
+                
+                <!-- Video Grid -->
+                <div id="videoGrid" class="video-grid">
+                    <div class="loading-container">
+                        <div class="loading"></div>
+                        <p style="margin-top: 15px;">Memuatkan video...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>Muat Naik Video Ceramah</h3>
+                <button class="close-modal" onclick="closeUploadModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadForm" onsubmit="uploadVideo(event)">
+                    <div class="form-group">
+                        <label>Tajuk Video <span class="required">*</span></label>
+                        <input type="text" id="videoTitle" required placeholder="Cth: Ceramah Ramadan 2024">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kategori <span class="required">*</span></label>
+                            <select id="videoCategory" required>
+                                <option value="">Pilih kategori</option>
+                                <option value="Ceramah Agama">Ceramah Agama</option>
+                                <option value="Tazkirah">Tazkirah</option>
+                                <option value="Kuliah">Kuliah</option>
+                                <option value="Motivasi">Motivasi</option>
+                                <option value="Pendidikan">Pendidikan</option>
+                                <option value="Lain-lain">Lain-lain</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Nama Penceramah/Ustaz <span class="required">*</span></label>
+                            <input type="text" id="videoSpeaker" required placeholder="Cth: Ustaz Ahmad">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tempoh Video</label>
+                            <input type="text" id="videoDuration" placeholder="Cth: 45:30">
+                            <small class="form-hint">Format: MM:SS atau HH:MM:SS</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Negara</label>
+                            <input type="text" id="videoCountry" placeholder="Negara rakaman">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>URL Video <span class="required">*</span></label>
+                        <input type="url" id="videoUrl" required placeholder="https://youtube.com/watch?v=... atau URL video lain">
+                        <small class="form-hint">Sokong: YouTube, Vimeo, atau link video langsung (.mp4)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>URL Thumbnail (Gambar Kecil)</label>
+                        <input type="url" id="thumbnailUrl" placeholder="https://example.com/thumbnail.jpg">
+                        <small class="form-hint">Jika kosong, thumbnail automatik akan digunakan</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Penerangan Video</label>
+                        <textarea id="videoDescription" rows="4" placeholder="Penerangan ringkas tentang video ini..."></textarea>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <small>
+                            <strong>Panduan Muat Naik:</strong><br>
+                            • Video hendaklah berkaitan dengan Islam dan dakwah<br>
+                            • Pastikan kualiti audio dan video baik<br>
+                            • Elakkan kandungan yang sensitif atau kontroversi<br>
+                            • Untuk YouTube: Copy URL dari address bar<br>
+                            • Video akan disemak oleh moderator sebelum disiarkan
+                        </small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Muat Naik Video
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Player Modal -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content modal-video">
+            <div class="modal-header">
+                <h3 id="playerTitle">Video Title</h3>
+                <button class="close-modal" onclick="closePlayerModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="videoPlayer" class="video-player"></div>
+                <div class="video-info">
+                    <div class="video-meta">
+                        <span><i class="fas fa-user"></i> <span id="playerSpeaker"></span></span>
+                        <span><i class="fas fa-clock"></i> <span id="playerDuration"></span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span id="playerCountry"></span></span>
+                        <span><i class="fas fa-eye"></i> <span id="playerViews"></span> tontonan</span>
+                    </div>
+                    <div class="video-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="likeVideo()">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span id="playerLikes">0</span> Suka
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="shareVideo()">
+                            <i class="fas fa-share"></i>
+                            Kongsi
+                        </button>
+                    </div>
+                </div>
+                <div class="video-description">
+                    <h4>Penerangan</h4>
+                    <p id="playerDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/videos.js"></script>
+</body>
+</html>

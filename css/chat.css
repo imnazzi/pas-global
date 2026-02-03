@@ -1,0 +1,191 @@
+/* Chat Specific Styles - Professional Refinement */
+
+.chat-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    height: calc(100vh - 100px); /* Adjusted for better padding */
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Contacts Panel Refinement */
+.contacts-panel {
+    background: rgba(0, 0, 0, 0.1); /* Subtle contrast from chat window */
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts-header {
+    padding: 24px 20px;
+    background: transparent;
+}
+
+.contacts-header h2 {
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--primary-light);
+}
+
+/* Modern Search Box */
+.search-box {
+    padding: 0 20px 20px;
+}
+
+.search-box input {
+    background: var(--bg-darker) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 12px 12px 40px;
+    transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* Contact Items */
+.contact-item {
+    margin: 4px 12px;
+    border-radius: 12px;
+    border: none; /* Removed the old border-bottom */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.contact-item.active {
+    background: var(--primary-gradient);
+    box-shadow: 0 4px 15px rgba(6, 78, 43, 0.3);
+}
+
+.contact-item.active .contact-name,
+.contact-item.active .contact-last-message,
+.contact-item.active .contact-time {
+    color: #ffffff !important;
+}
+
+/* Chat Panel / Window */
+.chat-header {
+    background: rgba(18, 24, 21, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+}
+
+.chat-user-status {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chat-user-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Message Bubbles - Modern Floating Style */
+.chat-messages {
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+    background-size: 24px 24px; /* Subtle dot grid pattern */
+}
+
+.message-bubble {
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-weight: 400;
+    box-shadow: var(--shadow-sm);
+    max-width: fit-content;
+}
+
+.message.received .message-bubble {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.message.sent .message-bubble {
+    background: var(--primary-gradient);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Chat Input Refinement */
+.chat-input {
+    background: rgba(18, 24, 21, 0.8);
+    padding: 20px 25px;
+    gap: 15px;
+}
+
+.chat-input input {
+    background: var(--bg-darker) !important;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    padding: 14px 20px;
+}
+
+.chat-input .btn-icon {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.chat-input .btn-icon:last-child {
+    background: var(--primary-light);
+    color: var(--bg-darker); /* Dark text on bright green button */
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.chat-input .btn-icon:last-child:hover {
+    transform: scale(1.05) rotate(-5deg);
+    background: #34d399;
+}
+
+/* Unread Badge */
+.unread-badge {
+    background: var(--primary-light);
+    color: var(--bg-darker);
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 10px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+/* Modern Modal Refinement */
+.modal-content {
+    border: 1px solid var(--border-color);
+    background: linear-gradient(145deg, #121815, #1a241f);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.user-item {
+    border: none;
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 8px;
+}
+
+.user-item:hover {
+    background: rgba(16, 185, 129, 0.1);
+    transform: translateY(-2px);
+}

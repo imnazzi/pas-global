@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PAS Global Connect</title>
+    <link rel="icon" type="image/png" href="public/img/logo-favicon-32.png">
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-horizontal">
+                    <img src="public/img/logo-45.png" alt="PAS Global Connect Logo">
+                    <span class="sidebar-title">PAS Global<br>Connect</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="chat.html" class="nav-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Mesej</span>
+                </a>
+                <a href="forum.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Forum</span>
+                </a>
+                <a href="videos.html" class="nav-item">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Video Ceramah</span>
+                </a>
+                <a href="community.html" class="nav-item">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Komuniti</span>
+                </a>
+                <a href="calendar.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Kalendar</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profil</span>
+                </a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Rasmi PAS</div>
+                
+                <a href="https://harakahdaily.net/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Harakah Daily</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-globe"></i>
+                    <span>Portal Rasmi PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://skimpas.com/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>SKIM PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://infaqpay.my/go/pas" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-donate"></i>
+                    <span>Infaq & Derma PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://keahlian.pas.org.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Keahlian PAS</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                
+                <div class="nav-divider"></div>
+                <div class="nav-section-title">Pautan Lain-lain</div>
+                
+                <a href="https://spr.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-vote-yea"></i>
+                    <span>SPR Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpn.gov.my/my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-id-card"></i>
+                    <span>JPN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.kln.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-flag"></i>
+                    <span>KLN Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.jpa.gov.my/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-briefcase"></i>
+                    <span>JPA Malaysia</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+                <a href="https://www.mara.gov.my/en/index/" target="_blank" class="nav-item nav-external">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>MARA</span>
+                    <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 10px; opacity: 0.5;"></i>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">A</div>
+                    <div class="user-info">
+                        <div class="user-name">Loading...</div>
+                        <div class="user-role">Ahli</div>
+                    </div>
+                </div>
+                <button onclick="logout()" class="btn btn-secondary btn-block" style="margin-top: 15px;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Log Keluar
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Selamat Datang ke PAS Global Connect</h1>
+                <p class="page-subtitle">Platform komunikasi khusus ahli PAS Luar Negara di seluruh dunia</p>
+            </div>
+            
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="totalMembers">0</div>
+                    <div class="stat-label">Jumlah Ahli</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon success">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="totalCountries">0</div>
+                    <div class="stat-label">Negara Aktif</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="totalEvents">0</div>
+                    <div class="stat-label">Aktiviti Bulan Ini</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon info">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value" id="totalDiscussions">0</div>
+                    <div class="stat-label">Topik Diskusi</div>
+                </div>
+            </div>
+            
+            <!-- News Feed -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-newspaper"></i>
+                        Berita & Pengumuman Terkini
+                    </h2>
+                    <button class="btn btn-primary" onclick="window.location.href='forum.html'">
+                        <i class="fas fa-plus"></i>
+                        Buat Pengumuman
+                    </button>
+                </div>
+                
+                <div id="newsFeed" class="news-feed">
+                    <div class="loading-container" style="text-align: center; padding: 40px;">
+                        <div class="loading" style="width: 40px; height: 40px; margin: 0 auto;"></div>
+                        <p style="margin-top: 15px; color: var(--text-muted);">Memuatkan berita...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activities -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-clock"></i>
+                        Aktiviti Terkini
+                    </h2>
+                </div>
+                
+                <div id="recentActivities" class="activities-list">
+                    <div class="loading-container" style="text-align: center; padding: 40px;">
+                        <div class="loading" style="width: 40px; height: 40px; margin: 0 auto;"></div>
+                        <p style="margin-top: 15px; color: var(--text-muted);">Memuatkan aktiviti...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upcoming Events -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        Acara Akan Datang
+                    </h2>
+                    <button class="btn btn-primary" onclick="window.location.href='calendar.html'">
+                        <i class="fas fa-eye"></i>
+                        Lihat Kalendar
+                    </button>
+                </div>
+                
+                <div id="upcomingEvents" class="events-list">
+                    <div class="loading-container" style="text-align: center; padding: 40px;">
+                        <div class="loading" style="width: 40px; height: 40px; margin: 0 auto;"></div>
+                        <p style="margin-top: 15px; color: var(--text-muted);">Memuatkan acara...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

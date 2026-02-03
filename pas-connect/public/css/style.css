@@ -1,0 +1,40 @@
+/* PAS Connect - Dark Green Theme */
+:root{
+  --primary-700: #0a6b2a;
+  --primary-800: #063a15;
+  --muted: #cfe7d1;
+}
+body{ background: linear-gradient(180deg, #042a14 0%, #072e17 100%); color: #e8f7ea; }
+.navbar-brand, .navbar-nav .nav-link { color: #e8f7ea !important; }
+.container{ margin-top: 20px; }
+.card{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); }
+.btn-primary{ background: linear-gradient(90deg,var(--primary-700),var(--primary-800)); border: none; }
+.btn-outline-primary{ border-color: rgba(255,255,255,0.1); color: #e8f7ea; }
+.badge.bg-danger{ background:#c0392b; }
+a{ color: #bde6c8; }
+small.text-muted{ color: rgba(255,255,255,0.6); }
+.form-control{ background: rgba(255,255,255,0.02); color: #e8f7ea; border:1px solid rgba(255,255,255,0.04); }
+#flashMessage .alert{ box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+/* video/image previews */
+.preview-box{ border:1px dashed rgba(255,255,255,0.06); padding:10px; background: rgba(0,0,0,0.15); }
+
+/* Admin dashboard action card styles */
+.admin-actions .btn {
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.admin-actions .btn i { opacity: 0.9; }
+.admin-actions .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+
+/* Footer overrides */
+footer { background: linear-gradient(90deg, rgba(4,40,12,0.95), rgba(10,68,36,0.95)); }
+footer .text-muted { color: rgba(255,255,255,0.6) !important; }
+
+/* Make all muted text solid black per request */
+.text-muted, .small.text-muted, .muted, .text-muted * { color: #000 !important; opacity: 1 !important; }
+

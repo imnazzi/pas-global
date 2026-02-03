@@ -1,0 +1,6 @@
+# Netlify Redirects
+# PAS Global Connect
+
+# Single Page Application (SPA) routing
+# All requests go to index.html for client-side routing
+/*    /index.html   200

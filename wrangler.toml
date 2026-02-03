@@ -1,0 +1,38 @@
+# Wrangler Configuration for Cloudflare Pages
+# PAS Global Connect
+
+name = "pas-global-connect"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+# Environment configuration
+[env.production]
+name = "pas-global-connect"
+route = "https://pas-global-connect.pages.dev/*"
+
+[env.preview]
+name = "pas-global-connect-preview"
+
+# Build configuration (not needed for static HTML)
+# [build]
+# command = ""
+# cwd = ""
+
+# Variables (add as needed)
+# [vars]
+# API_KEY = "your-api-key"
+
+# KV Namespaces (if needed in future)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Durable Objects (if needed in future)
+# [[durable_objects.bindings]]
+# name = "MY_DO"
+# class_name = "MyDurableObject"
+
+# R2 Buckets (if needed in future)
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
